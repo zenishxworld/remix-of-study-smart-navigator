@@ -1,30 +1,29 @@
 # Study Abroad Decision Intelligence Platform
 
-A production-ready, commission-neutral study abroad decision platform built with Next.js, TypeScript, PostgreSQL, and modern fintech-style UI.
+A production-ready, commission-neutral study abroad decision platform built with Next.js 14, TypeScript, Supabase, and TailwindCSS.
 
 ## 🎯 Features
 
 ### For Students
-- **Match Score Engine**: Personalized university rankings (40% Academic + 30% Budget + 20% ROI + 10% Visa Risk)
-- **ROI Calculator**: Break-even analysis, loan simulations, and 5-year net gain projections
-- **Verified Admits**: Browse real admit/reject data filtered by CGPA, IELTS, country
-- **Application Tracker**: Manage application statuses and deadlines
-- **User Dashboard**: Save comparisons, track applications, update profile
+- **Match Score Engine** — Personalized university rankings (40% Academic + 30% Budget + 20% ROI + 10% Visa Risk)
+- **ROI Calculator** — Break-even analysis, loan simulations, 5-year net gain projections, and university comparison
+- **Verified Admits** — Browse real admit/reject data filtered by country and result type
+- **Application Tracker** — Track application statuses with inline editing and deadline management
+- **Profile Management** — Academic details, budget, preferred countries and programs
+- **University Detail** — Full score breakdown, programs, admit statistics
 
 ### For Admins
-- **University Management**: Full CRUD operations
-- **Admit Review System**: Approve/reject user-uploaded admits
-- **Statistics Dashboard**: Platform metrics and insights
-- **Data Management**: Update salary data, visa risks, rankings
+- **University Management** — Full CRUD operations
+- **Admit Review System** — Approve/reject user-uploaded admits
+- **Statistics Dashboard** — Platform metrics and insights
 
 ## 🏗️ Tech Stack
 
 - **Frontend**: Next.js 14 (App Router), React, TypeScript, TailwindCSS
-- **Backend**: Next.js API Routes, Node.js
-- **Database**: PostgreSQL with structured schema
-- **Authentication**: JWT-based session handling
-- **Charts**: Recharts for data visualization
-- **Validation**: Zod for schema validation
+- **Backend**: Next.js API Routes
+- **Database**: Supabase (PostgreSQL + Row Level Security)
+- **Authentication**: Supabase Auth (token-based)
+- **Scoring**: Custom match score and ROI calculation engines
 
 ## 📁 Project Structure
 
@@ -32,69 +31,68 @@ A production-ready, commission-neutral study abroad decision platform built with
 study-abroad-platform/
 ├── app/                        # Next.js app directory
 │   ├── api/                    # API routes
-│   │   ├── auth/              # Authentication endpoints
-│   │   ├── universities/      # University endpoints
-│   │   ├── applications/      # Application tracking
-│   │   ├── admits/            # Admit upload & browse
-│   │   ├── user/              # User profile
-│   │   ├── roi/               # ROI comparison
-│   │   └── admin/             # Admin endpoints
-│   ├── (pages)/               # Frontend pages
+│   │   ├── auth/              # login, signup (Supabase Auth)
+│   │   ├── universities/      # browse + detail
+│   │   ├── applications/      # CRUD with status tracking
+│   │   ├── admits/            # browse + submit
+│   │   ├── user/              # profile GET/PUT
+│   │   ├── roi/               # single + compare
+│   │   └── admin/             # stats, universities CRUD, admits review
+│   ├── dashboard/             # User dashboard
+│   ├── universities/          # Browse + [id] detail
+│   ├── roi-calculator/        # ROI calculator
+│   ├── applications/          # Application tracker
+│   ├── profile/               # Profile management
+│   ├── admits/                # Browse + upload
+│   ├── login/                 # Login page
+│   ├── signup/                # Signup page
 │   ├── layout.tsx             # Root layout
 │   ├── page.tsx               # Landing page
-│   └── globals.css            # Global styles
+│   └── globals.css            # Global styles + Tailwind
 ├── components/                 # Reusable components
-│   ├── Navbar.tsx
-│   ├── Footer.tsx
-│   ├── ScoreCircle.tsx
-│   └── LoadingSpinner.tsx
+│   ├── Navbar.tsx             # Auth-aware navigation
+│   ├── Footer.tsx             # Site footer
+│   ├── ScoreCircle.tsx        # Circular score visualization
+│   └── LoadingSpinner.tsx     # Loading states
 ├── lib/                        # Utilities
-│   ├── db.ts                  # Database connection
-│   ├── auth.ts                # JWT utilities
+│   ├── supabase.ts            # Lazy-initialized Supabase clients
+│   ├── auth.ts                # Auth helper (getUser from token)
 │   ├── scoring.ts             # Match score engine
-│   ├── roi.ts                 # ROI calculation engine
-│   └── validation.ts          # Input validation
+│   └── roi.ts                 # ROI calculation engine
 ├── database/                   # Database files
-│   ├── schema.sql             # Database schema
-│   └── seed.sql               # Seed data
-└── public/                     # Static files
-
+│   ├── schema.sql             # Supabase schema + RLS policies
+│   └── seed.sql               # Seed data (25 universities)
+└── .env.local                  # Environment variables
 ```
 
 ## 🚀 Setup Instructions
 
 ### Prerequisites
 - Node.js 18+ and npm
-- PostgreSQL 14+
+- A Supabase project (free at [supabase.com](https://supabase.com))
 
-### 1. Clone and Install
+### 1. Install Dependencies
 
 ```bash
 cd study-abroad-platform
 npm install
 ```
 
-### 2. Database Setup
+### 2. Supabase Setup
 
-```bash
-# Create PostgreSQL database
-createdb study_abroad_db
-
-# Run schema
-psql -d study_abroad_db -f database/schema.sql
-
-# Seed data (optional but recommended)
-psql -d study_abroad_db -f database/seed.sql
-```
+1. Create a project at [supabase.com](https://supabase.com)
+2. Go to **SQL Editor** and run `database/schema.sql`
+3. Optionally run `database/seed.sql` for 25 sample universities
+4. Copy your project credentials from **Settings → API**
 
 ### 3. Environment Variables
 
 Create `.env.local`:
 
 ```env
-DATABASE_URL=postgresql://username:password@localhost:5432/study_abroad_db
-JWT_SECRET=your-super-secret-jwt-key-change-in-production
-NEXT_PUBLIC_API_URL=http://localhost:3000
+NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
+SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
 ```
 
 ### 4. Run Development Server
@@ -103,145 +101,100 @@ NEXT_PUBLIC_API_URL=http://localhost:3000
 npm run dev
 ```
 
-Visit `http://localhost:3000`
+Visit `http://localhost:3001`
 
 ### 5. Create Admin Account
 
-Run this SQL to create admin user:
-
+1. Sign up normally via the UI
+2. Run this SQL in Supabase SQL Editor:
 ```sql
-INSERT INTO users (email, password_hash, full_name, role)
-VALUES (
-  'admin@studyabroad.com',
-  -- Password: admin123 (you should hash this properly)
-  '$2a$10$YourHashedPasswordHere',
-  'Admin User',
-  'admin'
-);
+UPDATE profiles SET role = 'admin' WHERE email = 'your@email.com';
 ```
-
-Or use the signup endpoint and manually update the role in the database.
 
 ## 📊 Database Schema
 
-### Main Tables
-- **users**: User accounts with academic profiles
-- **universities**: University data (tuition, ranking, requirements)
-- **programs**: Degree programs offered
-- **application_tracking**: User application statuses
-- **admit_data**: Verified admit/reject uploads
-- **saved_comparisons**: User-saved university comparisons
+### Tables (with RLS)
+- **profiles** — User profiles with academic data (auto-created on signup via trigger)
+- **universities** — University data (tuition, ranking, requirements, salary data)
+- **programs** — Degree programs per university
+- **applications** — User application tracking with statuses
+- **admits** — Verified admit/reject data uploads
 
-See `database/schema.sql` for complete schema.
+See `database/schema.sql` for full schema with Row Level Security policies.
 
-## 🔐 Security Features
+## 🔐 Security
 
-- JWT-based authentication
-- Password hashing with bcrypt
-- SQL injection prevention via parameterized queries
-- File upload validation (type, size)
+- Supabase Auth with token-based authentication
+- Row Level Security (RLS) on all tables
+- Service role key used only server-side in API routes
+- Lazy-initialized Supabase clients (no build-time env var leaks)
 - Role-based access control (user/admin)
-- Input sanitization
 
 ## 📈 Scoring Algorithm
 
 **Overall Score = (Academic × 0.4) + (Budget × 0.3) + (ROI × 0.2) + (Visa × 0.1)**
 
 - **Academic**: CGPA + IELTS vs requirements
-- **Budget**: User budget vs total cost
+- **Budget**: User budget vs total cost (tuition + living)
 - **ROI**: Break-even years (lower is better)
-- **Visa**: Rejection risk (low/medium/high)
-
-## 🎨 UI Design Principles
-
-- **Modern fintech aesthetic**: Blue/white theme, glassmorphism
-- **Responsive**: Mobile-first design
-- **Smooth animations**: Tailwind transitions
-- **Clear typography**: Inter font
-- **Data visualization**: Charts and score circles
-- **Loading states**: Spinners and skeletons
+- **Visa**: Country rejection risk (low/medium/high)
 
 ## 🔗 API Endpoints
 
 ### Authentication
-- `POST /api/auth/signup` - Create account
-- `POST /api/auth/login` - Login
+- `POST /api/auth/signup` — Create account (Supabase Auth)
+- `POST /api/auth/login` — Login (returns access_token)
 
 ### Universities
-- `GET /api/universities` - List with filtering + match scores
-- `GET /api/universities/[id]` - Detail view
+- `GET /api/universities` — List with filtering + match scores
+- `GET /api/universities/[id]` — Detail with programs, admits, scores
 
 ### Applications
-- `GET /api/applications` - User's applications
-- `POST /api/applications` - Add application
-- `PUT /api/applications/[id]` - Update status
-- `DELETE /api/applications/[id]` - Remove
+- `GET /api/applications` — User's tracked applications
+- `POST /api/applications` — Track a university
+- `PUT /api/applications/[id]` — Update status/notes
+- `DELETE /api/applications/[id]` — Remove
 
 ### Admits
-- `GET /api/admits` - Browse verified admits
-- `POST /api/admits/upload` - Upload admit letter
+- `GET /api/admits` — Browse verified admits (filter by country/type)
+- `POST /api/admits` — Submit admit data for verification
 
 ### ROI
-- `POST /api/roi/compare` - Compare two universities
+- `POST /api/roi` — Single ROI calculation or comparison (mode: compare)
+
+### Profile
+- `GET /api/user/profile` — Get user profile
+- `PUT /api/user/profile` — Update profile
 
 ### Admin (requires admin role)
-- `POST /api/admin/universities` - Create university
-- `PUT /api/admin/universities/[id]` - Update
-- `DELETE /api/admin/universities/[id]` - Delete
-- `GET /api/admin/admits/pending` - Pending verifications
-- `POST /api/admin/admits/[id]/approve` - Approve admit
-- `DELETE /api/admin/admits/[id]/reject` - Reject admit
-- `GET /api/admin/stats` - Platform statistics
-
-## 📝 Legal Pages
-
-Create these pages:
-- `/privacy` - Privacy Policy
-- `/terms` - Terms of Service
-- `/disclaimer` - Financial projection disclaimer
+- `GET /api/admin/stats` — Platform statistics
+- `POST /api/admin/universities` — Create university
+- `PUT /api/admin/universities/[id]` — Update
+- `DELETE /api/admin/universities/[id]` — Delete
+- `GET /api/admin/admits/pending` — Pending verifications
+- `POST /api/admin/admits/[id]/approve` — Approve
+- `POST /api/admin/admits/[id]/reject` — Reject
 
 ## 🚢 Deployment
-
-### Build for Production
 
 ```bash
 npm run build
 npm start
 ```
 
-### Deploy to Vercel/Netlify
-
+Deploy to **Vercel**:
 1. Connect GitHub repository
-2. Set environment variables
-3. Deploy
-
-### Database Deployment
-
-Use managed PostgreSQL:
-- Heroku Postgres
-- AWS RDS
-- DigitalOcean Managed Databases
-- Supabase
+2. Set environment variables (Supabase URL, keys)
+3. Deploy — Supabase handles the database
 
 ## 🎯 Future Enhancements
 
 - [ ] Real-time chat support
 - [ ] Email notifications
-- [ ] Advanced filtering
-- [ ] Mobile app
 - [ ] Scholarship database
 - [ ] University reviews
 - [ ] AI-powered essay feedback
-
-## 📞 Support
-
-For questions or issues:
-- Email: hello@studyabroad.com
-- Documentation: See inline code comments
-
-## ⚖️ License
-
-Proprietary - All rights reserved
+- [ ] Mobile app
 
 ---
 

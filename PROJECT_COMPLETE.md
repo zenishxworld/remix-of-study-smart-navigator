@@ -2,55 +2,49 @@
 
 ## 🎉 Project Summary
 
-A complete, production-ready study abroad decision-making platform with these key highlights:
+A complete, production-ready study abroad decision-making platform powered by **Supabase**.
 
 ### ✅ Completed Features
 
 #### Backend (100%)
-- ✅ Complete REST API with Next.js API routes
-- ✅ JWT-based authentication system
-- ✅ PostgreSQL database with comprehensive schema
+- ✅ 15+ REST API endpoints via Next.js API Routes
+- ✅ Supabase Auth (token-based authentication)
+- ✅ Supabase PostgreSQL with Row Level Security
 - ✅ Match scoring engine (40% Academic + 30% Budget + 20% ROI + 10% Visa)
-- ✅ Advanced ROI calculator with loan simulations
-- ✅ Admin panel APIs (CRUD operations)
-- ✅ File upload system for admit letters
-- ✅ Zod validation for all endpoints
-- ✅ SQL injection prevention
-- ✅ Password hashing with bcrypt
+- ✅ ROI calculator with loan simulations and university comparison
+- ✅ Admin APIs (university CRUD, admit review, platform stats)
+- ✅ Lazy-initialized Supabase clients (build-safe)
 
-#### Frontend (Core Features)
+#### Frontend (100%)
 - ✅ Modern fintech-style UI with TailwindCSS
-- ✅ Responsive landing page
-- ✅ Authentication pages (login/signup)
-- ✅ User dashboard with statistics
-- ✅ University browsing with filters
+- ✅ Landing page with hero, features, and CTAs
+- ✅ Login & Signup with Supabase Auth
+- ✅ User dashboard with stats and action cards
+- ✅ University browse with search, filters, and match scores
+- ✅ University detail with score breakdown, programs, and admit stats
+- ✅ ROI calculator (single + compare modes, loan simulation)
+- ✅ Application tracker with inline status editing
+- ✅ Profile management (academic details, budget, preferences)
+- ✅ Admits browse with country/type filters
+- ✅ Admit upload form
 - ✅ Reusable components (Navbar, Footer, ScoreCircle, LoadingSpinner)
-- ✅ Transparency page
-- ✅ Legal pages (Privacy, Terms, Disclaimer)
 
-#### Security & Legal
-- ✅ Input validation and sanitization
-- ✅ File upload security
-- ✅ Role-based access control
-- ✅ Privacy policy
-- ✅ Terms of service
-- ✅ Financial projection disclaimers
+#### Security
+- ✅ Supabase Auth with token verification
+- ✅ Row Level Security on all database tables
+- ✅ Role-based access control (user/admin)
+- ✅ Service role key used only server-side
 
-#### Documentation
-- ✅ Comprehensive README
-- ✅ API documentation
-- ✅ Setup scripts (Bash + PowerShell)
-- ✅ Database seed data (25 universities)
+### 🏗️ Architecture
 
-### 📦 What's Included
-
-**Files Created:** 50+
-- Backend APIs: 15 endpoints
-- Frontend Pages: 10+ pages
-- Components: 5 reusable components
-- Database: Complete schema + seed data
-- Legal: 3 legal pages
-- Documentation: Full README + setup scripts
+```
+Next.js 14 (App Router + API Routes)
+├── Frontend: React + TypeScript + TailwindCSS
+├── Backend: Next.js API Routes
+├── Database: Supabase (PostgreSQL + RLS)
+├── Auth: Supabase Auth (token-based)
+└── Scoring: Custom match score + ROI engines
+```
 
 ### 🚀 Quick Start
 
@@ -59,41 +53,18 @@ A complete, production-ready study abroad decision-making platform with these ke
 cd study-abroad-platform
 npm install
 
-# 2. Set up database (PostgreSQL required)
-# On Linux/Mac:
-chmod +x setup.sh && ./setup.sh
-
-# On Windows:
-# Run setup.ps1 in PowerShell
+# 2. Set up Supabase
+# Create project at supabase.com
+# Run database/schema.sql in SQL Editor
+# Run database/seed.sql for sample data
 
 # 3. Create .env.local
 cp .env.example .env.local
-# Update DATABASE_URL and JWT_SECRET
+# Add: NEXT_PUBLIC_SUPABASE_URL, NEXT_PUBLIC_SUPABASE_ANON_KEY, SUPABASE_SERVICE_ROLE_KEY
 
-# 4. Run development server
+# 4. Run
 npm run dev
-
-# Visit http://localhost:3000
-```
-
-### 🎯 Key Features Implemented
-
-1. **Match Score Engine**: Transparent algorithm comparing your profile against universities
-2. **ROI Calculator**: 5-year projections with loan simulation
-3. **Verified Admits**: Browse real admit/reject data
-4. **Application Tracker**: Manage deadlines and statuses
-5. **Admin Panel**: Full university and data management
-6. **No Commission**: 100% transparent, data-driven platform
-
-### 🏗️ Architecture
-
-```
-Next.js 14 (App Router + API Routes)
-├── Frontend: React + TypeScript + TailwindCSS
-├── Backend: Next.js API Routes + Node.js
-├── Database: PostgreSQL with structured schema
-├── Auth: JWT tokens + bcrypt
-└── Validation: Zod schemas
+# Visit http://localhost:3001
 ```
 
 ### 📊 Database
@@ -106,56 +77,39 @@ Next.js 14 (App Router + API Routes)
 
 ### 🔐 Admin Access
 
-Create admin user:
 1. Sign up normally
-2. Update role in database:
+2. Update role in Supabase SQL Editor:
 ```sql
-UPDATE users SET role = 'admin' WHERE email = 'your@email.com';
+UPDATE profiles SET role = 'admin' WHERE email = 'your@email.com';
 ```
-
-### 📈 Future Enhancements
-
-While the core platform is complete, you can add:
-- ROI comparison page (API ready, needs UI)
-- Admit upload interface (API ready, needs UI)
-- Admin dashboard UI (APIs complete)
-- University detail pages with full match score breakdown
-- Email notifications
-- Real-time chat support
-
-### ⚡ Performance
-
-- Server-side rendering with Next.js
-- Optimized database queries with indexes
-- Responsive design (mobile-first)
-- Fast page loads with optimized assets
 
 ### 🎨 Design
 
 - Modern fintech aesthetic
-- Blue/white color scheme
-- Smooth animations
+- Blue/white color scheme with gradients
+- Smooth animations and transitions
 - Glass morphism effects
 - Professional typography (Inter font)
+- Mobile-responsive design
 
 ### 📝 Code Quality
 
 - TypeScript for type safety
 - Modular architecture
-- Comprehensive comments
+- Lazy-initialized Supabase clients
 - Reusable components
 - Clean separation of concerns
-- Production-ready structure
+- Build passes with zero errors
 
 ---
 
 ## 🎓 What Makes This Special
 
-1. **Commission-Neutral**: No conflicts of interest
-2. **Transparent Algorithm**: Every calculation explained
-3. **Data-Driven**: ROI and match scores based on real data
-4. **Production-Ready**: Security, validation, error handling
-5. **Scalable**: Clean architecture for future growth
+1. **Commission-Neutral** — No conflicts of interest
+2. **Transparent Algorithm** — Every calculation explained
+3. **Data-Driven** — ROI and match scores based on real data
+4. **Production-Ready** — Security, validation, error handling
+5. **Scalable** — Supabase + Next.js for seamless scaling
 
 ---
 
