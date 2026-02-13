@@ -26,8 +26,8 @@ export default function ProductPreview() {
                             ].map(item => (
                                 <div key={item.label} className="flex items-start gap-3">
                                     <div className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
-                                        style={{ background: 'linear-gradient(135deg, hsla(245, 67%, 55%, 0.2), hsla(174, 68%, 50%, 0.2))' }}>
-                                        <svg className="w-3 h-3 text-primary-600 dark:text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        style={{ background: 'linear-gradient(135deg, hsla(262, 80%, 55%, 0.2), hsla(200, 90%, 50%, 0.15))' }}>
+                                        <svg className="w-3 h-3 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                                         </svg>
                                     </div>
@@ -44,7 +44,7 @@ export default function ProductPreview() {
                     <div ref={ref} className="reveal relative">
                         {/* Animated glow */}
                         <div className="absolute -inset-6 rounded-3xl blur-2xl opacity-40 animate-pulse-soft"
-                            style={{ background: 'linear-gradient(135deg, hsla(245, 67%, 55%, 0.15), hsla(174, 68%, 50%, 0.1))' }} />
+                            style={{ background: 'linear-gradient(135deg, hsla(262, 80%, 55%, 0.18), hsla(200, 90%, 50%, 0.12))' }} />
 
                         <div className="relative rounded-2xl overflow-hidden shadow-float animate-float"
                             style={{ border: '1px solid var(--border-color)' }}>
@@ -81,7 +81,7 @@ export default function ProductPreview() {
                                             </div>
                                             <div className="h-1.5 rounded-full overflow-hidden" style={{ backgroundColor: 'var(--border-color)' }}>
                                                 <div className="h-full rounded-full transition-all duration-1000"
-                                                    style={{ width: `${item.value}%`, background: 'linear-gradient(90deg, hsla(245, 67%, 55%, 1), hsla(174, 68%, 50%, 1))' }} />
+                                                    style={{ width: `${item.value}%`, background: 'linear-gradient(90deg, hsla(262, 80%, 55%, 1), hsla(200, 90%, 50%, 1))' }} />
                                             </div>
                                         </div>
                                     ))}
@@ -93,18 +93,18 @@ export default function ProductPreview() {
                                         <span className="text-[10px] font-semibold uppercase tracking-wider" style={{ color: 'var(--text-tertiary)' }}>ROI Comparison</span>
                                         <div className="flex gap-3">
                                             <span className="flex items-center gap-1 text-[10px]" style={{ color: 'var(--text-tertiary)' }}>
-                                                <span className="w-2 h-2 rounded-full" style={{ background: 'hsla(245, 67%, 55%, 0.8)' }} /> TU Munich
+                                                <span className="w-2 h-2 rounded-full" style={{ background: 'hsla(262, 80%, 55%, 0.8)' }} /> TU Munich
                                             </span>
                                             <span className="flex items-center gap-1 text-[10px]" style={{ color: 'var(--text-tertiary)' }}>
-                                                <span className="w-2 h-2 rounded-full" style={{ background: 'hsla(174, 68%, 50%, 0.8)' }} /> RWTH Aachen
+                                                <span className="w-2 h-2 rounded-full" style={{ background: 'hsla(200, 90%, 50%, 0.8)' }} /> RWTH Aachen
                                             </span>
                                         </div>
                                     </div>
                                     <div className="flex items-end gap-1.5 h-20">
                                         {[35, 50, 65, 45, 80, 55, 85, 70, 90, 75].map((h, i) => (
                                             <div key={i} className="flex-1 flex gap-0.5 items-end">
-                                                <div className="flex-1 rounded-t" style={{ height: `${h}%`, background: 'hsla(245, 67%, 55%, 0.6)' }} />
-                                                <div className="flex-1 rounded-t" style={{ height: `${Math.max(20, h - 10 + Math.random() * 15)}%`, background: 'hsla(174, 68%, 50%, 0.6)' }} />
+                                                <div className="flex-1 rounded-t" style={{ height: `${h}%`, background: 'hsla(262, 80%, 55%, 0.6)' }} />
+                                                <div className="flex-1 rounded-t" style={{ height: `${Math.max(20, h - 10 + Math.random() * 15)}%`, background: 'hsla(200, 90%, 50%, 0.6)' }} />
                                             </div>
                                         ))}
                                     </div>

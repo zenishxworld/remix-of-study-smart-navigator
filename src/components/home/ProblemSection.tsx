@@ -5,22 +5,22 @@ const problems = [
         icon: '💰',
         title: 'Commission Bias',
         description: 'Most platforms recommend universities that pay them — not what\'s best for you.',
-        accent: 'hsla(0, 72%, 51%, 0.1)',
-        accentBorder: 'hsla(0, 72%, 51%, 0.15)',
+        accent: 'hsla(0, 80%, 55%, 0.08)',
+        accentBorder: 'hsla(0, 80%, 55%, 0.18)',
     },
     {
         icon: '🔒',
         title: 'Hidden Costs',
         description: 'Students spend ₹40–60L without clear ROI projections or financial clarity.',
-        accent: 'hsla(38, 92%, 50%, 0.1)',
-        accentBorder: 'hsla(38, 92%, 50%, 0.15)',
+        accent: 'hsla(35, 95%, 52%, 0.08)',
+        accentBorder: 'hsla(35, 95%, 52%, 0.18)',
     },
     {
         icon: '📢',
         title: 'Sales-Driven Advice',
         description: 'Consultants push "safe" colleges instead of optimal ones for your career.',
-        accent: 'hsla(245, 67%, 55%, 0.1)',
-        accentBorder: 'hsla(245, 67%, 55%, 0.15)',
+        accent: 'hsla(262, 80%, 55%, 0.08)',
+        accentBorder: 'hsla(262, 80%, 55%, 0.18)',
     },
 ];
 

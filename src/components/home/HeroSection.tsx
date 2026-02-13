@@ -19,11 +19,11 @@ export default function HeroSection() {
             {/* Animated gradient background */}
             <div className="absolute inset-0 bg-mesh" />
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1200px] h-[600px] opacity-40 pointer-events-none"
-                style={{ background: 'radial-gradient(ellipse at center, hsla(245, 80%, 60%, 0.15) 0%, transparent 70%)' }} />
-            <div className="absolute top-20 right-[10%] w-72 h-72 rounded-full blur-3xl animate-pulse-soft opacity-30"
-                style={{ background: 'hsla(245, 67%, 55%, 0.2)' }} />
-            <div className="absolute bottom-10 left-[5%] w-96 h-96 rounded-full blur-3xl animate-pulse-soft opacity-20"
-                style={{ background: 'hsla(174, 68%, 50%, 0.15)', animationDelay: '2s' }} />
+                style={{ background: 'radial-gradient(ellipse at center, hsla(262, 80%, 55%, 0.18) 0%, transparent 70%)' }} />
+            <div className="absolute top-20 right-[10%] w-72 h-72 rounded-full blur-3xl animate-pulse-soft opacity-40"
+                style={{ background: 'hsla(262, 80%, 55%, 0.25)' }} />
+            <div className="absolute bottom-10 left-[5%] w-96 h-96 rounded-full blur-3xl animate-pulse-soft opacity-25"
+                style={{ background: 'hsla(200, 90%, 50%, 0.2)', animationDelay: '2s' }} />
 
             <div className="container-custom relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -77,7 +77,7 @@ export default function HeroSection() {
                         <div className="relative animate-float">
                             {/* Glow behind */}
                             <div className="absolute -inset-8 rounded-3xl opacity-50 blur-2xl"
-                                style={{ background: 'linear-gradient(135deg, hsla(245, 67%, 55%, 0.12), hsla(174, 68%, 50%, 0.08))' }} />
+                                style={{ background: 'linear-gradient(135deg, hsla(262, 80%, 55%, 0.15), hsla(200, 90%, 50%, 0.10))' }} />
 
                             <div className="relative rounded-2xl overflow-hidden shadow-float"
                                 style={{ border: '1px solid var(--border-color)', backgroundColor: 'var(--card-bg)' }}>
@@ -109,7 +109,7 @@ export default function HeroSection() {
                                             <span className="text-xs mb-1" style={{ color: 'var(--text-tertiary)' }}>/100</span>
                                         </div>
                                         <div className="mt-2 h-1.5 rounded-full overflow-hidden" style={{ backgroundColor: 'var(--border-color)' }}>
-                                            <div className="h-full w-[87%] rounded-full" style={{ background: 'linear-gradient(90deg, hsla(245, 67%, 55%, 1), hsla(174, 68%, 50%, 1))' }} />
+                                            <div className="h-full w-[87%] rounded-full" style={{ background: 'linear-gradient(90deg, hsla(262, 80%, 55%, 1), hsla(200, 90%, 50%, 1))' }} />
                                         </div>
                                     </div>
 
@@ -133,7 +133,7 @@ export default function HeroSection() {
                                         <div className="flex items-end gap-1 h-16">
                                             {[30, 45, 55, 40, 65, 50, 75, 60, 85, 70, 90, 80].map((h, i) => (
                                                 <div key={i} className="flex-1 rounded-t transition-all duration-500"
-                                                    style={{ height: `${h}%`, background: `linear-gradient(180deg, hsla(245, 67%, 55%, 0.7), hsla(174, 68%, 50%, 0.5))` }} />
+                                                    style={{ height: `${h}%`, background: `linear-gradient(180deg, hsla(262, 80%, 55%, 0.8), hsla(200, 90%, 50%, 0.5))` }} />
                                             ))}
                                         </div>
                                     </div>
