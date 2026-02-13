@@ -12,11 +12,11 @@ function StepCard({ num, title, desc, icon }: typeof steps[0]) {
         <div ref={ref} className="reveal text-center relative">
             <div className="relative mb-5 mx-auto">
                 <div className="w-20 h-20 rounded-2xl mx-auto flex items-center justify-center shadow-card transition-all duration-300 hover:shadow-glow hover:scale-105"
-                    style={{ background: 'linear-gradient(135deg, hsla(245, 67%, 55%, 0.1), hsla(174, 68%, 50%, 0.1))', border: '1px solid var(--border-color)', backgroundColor: 'var(--card-bg)' }}>
+                    style={{ background: 'linear-gradient(135deg, hsla(262, 80%, 55%, 0.12), hsla(200, 90%, 50%, 0.08))', border: '1px solid var(--border-color)', backgroundColor: 'var(--card-bg)' }}>
                     <span className="text-2xl">{icon}</span>
                 </div>
                 <div className="absolute -top-2 -right-2 w-7 h-7 rounded-full flex items-center justify-center text-[10px] font-bold text-white"
-                    style={{ background: 'linear-gradient(135deg, hsla(245, 67%, 55%, 1), hsla(174, 68%, 50%, 1))' }}>
+                    style={{ background: 'linear-gradient(135deg, hsla(262, 80%, 55%, 1), hsla(200, 90%, 50%, 1))' }}>
                     {num}
                 </div>
             </div>
@@ -43,7 +43,7 @@ export default function HowItWorks() {
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
                         {/* Connecting line (desktop) */}
                         <div className="hidden md:block absolute top-10 left-[16.67%] right-[16.67%] h-px"
-                            style={{ background: 'linear-gradient(90deg, var(--border-color), hsla(245, 67%, 55%, 0.3), var(--border-color))' }} />
+                            style={{ background: 'linear-gradient(90deg, var(--border-color), hsla(262, 80%, 55%, 0.35), var(--border-color))' }} />
 
                         {steps.map(step => (
                             <StepCard key={step.num} {...step} />

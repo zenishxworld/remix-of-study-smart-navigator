@@ -45,7 +45,7 @@ export default function UniversityDetail() {
             <div className="min-h-screen" style={{ backgroundColor: 'var(--bg-primary)' }}>
                 <Navbar />
                 <div className="pt-32 flex justify-center">
-                    <div className="w-12 h-12 border-4 rounded-full animate-spin" style={{ borderColor: 'var(--border-color)', borderTopColor: '#4f46e5' }} />
+                    <div className="w-12 h-12 border-4 rounded-full animate-spin" style={{ borderColor: 'var(--border-color)', borderTopColor: '#7c3aed' }} />
                 </div>
             </div>
         );
@@ -59,13 +59,13 @@ export default function UniversityDetail() {
 
             <section className="relative pt-20 pb-8 md:pt-28 md:pb-10 bg-mesh overflow-hidden">
                 <div className="absolute inset-0 overflow-hidden">
-                    <div className="absolute -top-20 -right-20 w-60 h-60 bg-gradient-to-br from-indigo-500/20 to-teal-500/20 rounded-full blur-3xl" />
+                    <div className="absolute -top-20 -right-20 w-60 h-60 bg-gradient-to-br from-primary-500/25 to-accent-400/20 rounded-full blur-3xl" />
                 </div>
                 <div className="container-custom relative z-10">
                     <div className="flex items-center gap-2 text-xs md:text-sm mb-4 flex-wrap" style={{ color: 'var(--text-tertiary)' }}>
-                        <Link to="/explore" className="hover:text-indigo-400 transition-colors">Explore</Link>
+                        <Link to="/explore" className="hover:text-primary-500 transition-colors">Explore</Link>
                         <span>/</span>
-                        <Link to={`/explore?country=${country}`} className="hover:text-indigo-400 transition-colors capitalize">
+                        <Link to={`/explore?country=${country}`} className="hover:text-primary-500 transition-colors capitalize">
                             {countryFlags[country]} {countryNames[country] || country}
                         </Link>
                         <span>/</span>
@@ -75,7 +75,7 @@ export default function UniversityDetail() {
                     <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
                         <div className="flex-1">
                             <div className="flex items-center gap-3 mb-3 flex-wrap">
-                                <span className="text-sm font-bold px-3 py-1 rounded-full text-white" style={{ background: 'linear-gradient(135deg, #4f46e5, #14b8a6)' }}>Rank #{uni.rank}</span>
+                                <span className="text-sm font-bold px-3 py-1 rounded-full text-white" style={{ background: 'linear-gradient(135deg, #7c3aed, #06b6d4)' }}>Rank #{uni.rank}</span>
                                 <span className={`text-sm font-medium px-3 py-1 rounded-full border ${getVisaBg(uni.visa_risk)} ${getVisaColor(uni.visa_risk)}`}>{uni.visa_risk} Visa Risk</span>
                                 <span className="text-sm px-3 py-1 rounded-full" style={{ backgroundColor: 'var(--glass-bg)', border: '1px solid var(--border-color)', color: 'var(--text-secondary)' }}>{uni.type}</span>
                             </div>
@@ -84,7 +84,7 @@ export default function UniversityDetail() {
                         </div>
                         <div className="flex gap-2 md:gap-3 flex-shrink-0 flex-wrap">
                             {uni.website && (
-                                <a href={uni.website} target="_blank" rel="noopener noreferrer" className="px-5 py-2.5 rounded-xl font-semibold text-white transition-all hover:scale-105 text-sm" style={{ background: 'linear-gradient(135deg, #4f46e5, #14b8a6)' }}>🔗 Visit Website</a>
+                                <a href={uni.website} target="_blank" rel="noopener noreferrer" className="px-5 py-2.5 rounded-xl font-semibold text-white transition-all hover:scale-105 text-sm" style={{ background: 'linear-gradient(135deg, #7c3aed, #06b6d4)' }}>🔗 Visit Website</a>
                             )}
                             {uni.source && (
                                 <a href={uni.source} target="_blank" rel="noopener noreferrer" className="px-5 py-2.5 rounded-xl font-semibold text-sm transition-all hover:scale-105" style={{ backgroundColor: 'var(--glass-bg)', border: '1px solid var(--border-color)', color: 'var(--text-secondary)' }}>📄 Fee Source</a>
@@ -136,7 +136,7 @@ export default function UniversityDetail() {
                                 <div className="space-y-2">
                                     {uni.popular_english_programs.map((prog, i) => (
                                         <div key={i} className="flex items-center gap-3 px-4 py-3 rounded-xl transition-all hover:scale-[1.01]" style={{ backgroundColor: 'var(--glass-bg)', border: '1px solid var(--border-color)' }}>
-                                            <span className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold text-white flex-shrink-0" style={{ background: 'linear-gradient(135deg, #4f46e5, #14b8a6)' }}>{i + 1}</span>
+                                            <span className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold text-white flex-shrink-0" style={{ background: 'linear-gradient(135deg, #7c3aed, #06b6d4)' }}>{i + 1}</span>
                                             <p className="font-medium" style={{ color: 'var(--text-primary)' }}>{prog}</p>
                                         </div>
                                     ))}
@@ -162,7 +162,7 @@ export default function UniversityDetail() {
                                 </div>
                             </div>
 
-                            <div className="rounded-2xl p-6" style={{ background: 'linear-gradient(135deg, rgba(99,102,241,0.1), rgba(20,184,166,0.1))', border: '1px solid rgba(99,102,241,0.2)' }}>
+                            <div className="rounded-2xl p-6" style={{ background: 'linear-gradient(135deg, rgba(124,58,237,0.08), rgba(6,182,212,0.06))', border: '1px solid rgba(124,58,237,0.15)' }}>
                                 <h2 className="text-lg font-bold mb-3" style={{ color: 'var(--text-primary)' }}>🚀 Quick ROI Snapshot</h2>
                                 <div className="space-y-3">
                                     <div className="flex justify-between text-sm">
@@ -173,14 +173,14 @@ export default function UniversityDetail() {
                                         <span style={{ color: 'var(--text-secondary)' }}>Living Cost</span>
                                         <span className="font-semibold" style={{ color: 'var(--text-primary)' }}>{uni.estimated_annual_living_cost_inr.split('(')[0].trim()}</span>
                                     </div>
-                                    <div className="pt-2" style={{ borderTop: '1px solid rgba(99,102,241,0.2)' }}>
+                                    <div className="pt-2" style={{ borderTop: '1px solid rgba(124,58,237,0.15)' }}>
                                         <div className="flex justify-between text-sm">
                                             <span style={{ color: 'var(--text-secondary)' }}>Expected Salary</span>
                                             <span className="font-bold text-emerald-400">{uni.avg_starting_salary_inr.split('(')[0].trim()}</span>
                                         </div>
                                     </div>
                                 </div>
-                                <Link to="/roi-calculator" className="block w-full mt-4 px-4 py-2.5 rounded-xl font-semibold text-white text-center text-sm transition-all hover:scale-105" style={{ background: 'linear-gradient(135deg, #4f46e5, #14b8a6)' }}>
+                                <Link to="/roi-calculator" className="block w-full mt-4 px-4 py-2.5 rounded-xl font-semibold text-white text-center text-sm transition-all hover:scale-105" style={{ background: 'linear-gradient(135deg, #7c3aed, #06b6d4)' }}>
                                     📊 Full ROI Analysis
                                 </Link>
                             </div>
@@ -189,7 +189,7 @@ export default function UniversityDetail() {
                                 <p className="text-2xl mb-3">🎯</p>
                                 <h3 className="font-bold mb-2" style={{ color: 'var(--text-primary)' }}>Interested?</h3>
                                 <p className="text-sm mb-4" style={{ color: 'var(--text-tertiary)' }}>Get matched with this university and track your application</p>
-                                <Link to="/explore" className="block w-full px-4 py-2.5 rounded-xl font-semibold text-white text-center text-sm transition-all hover:scale-105" style={{ background: 'linear-gradient(135deg, #4f46e5, #14b8a6)' }}>
+                                <Link to="/explore" className="block w-full px-4 py-2.5 rounded-xl font-semibold text-white text-center text-sm transition-all hover:scale-105" style={{ background: 'linear-gradient(135deg, #7c3aed, #06b6d4)' }}>
                                     Explore More Universities
                                 </Link>
                             </div>

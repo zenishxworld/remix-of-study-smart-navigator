@@ -44,7 +44,7 @@ function FeatureCard({ icon, title, description }: { icon: React.ReactNode; titl
     return (
         <div ref={ref} className="reveal card-glass group glow-border p-7 hover:shadow-card-hover">
             <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-110"
-                style={{ background: 'linear-gradient(135deg, hsla(245, 67%, 55%, 0.1), hsla(174, 68%, 50%, 0.1))', color: 'var(--text-primary)' }}>
+                style={{ background: 'linear-gradient(135deg, hsla(262, 80%, 55%, 0.12), hsla(200, 90%, 50%, 0.08))', color: 'var(--text-primary)' }}>
                 {icon}
             </div>
             <h3 className="text-base font-bold mb-2 tracking-tight" style={{ color: 'var(--text-primary)' }}>{title}</h3>

@@ -7,12 +7,12 @@ export default function FinalCTA() {
     return (
         <section className="relative py-24 md:py-32 overflow-hidden">
             {/* Dark gradient background */}
-            <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, hsla(245, 50%, 12%, 1), hsla(240, 30%, 8%, 1), hsla(245, 40%, 15%, 1))' }} />
+            <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, hsla(262, 60%, 12%, 1), hsla(250, 40%, 8%, 1), hsla(262, 50%, 18%, 1))' }} />
             <div className="absolute inset-0 bg-mesh opacity-20" />
             <div className="absolute top-0 right-0 w-80 h-80 rounded-full blur-3xl opacity-30"
-                style={{ background: 'hsla(245, 67%, 55%, 0.2)' }} />
+                style={{ background: 'hsla(262, 80%, 55%, 0.25)' }} />
             <div className="absolute bottom-0 left-0 w-96 h-96 rounded-full blur-3xl opacity-20"
-                style={{ background: 'hsla(174, 68%, 50%, 0.15)' }} />
+                style={{ background: 'hsla(200, 90%, 50%, 0.2)' }} />
 
             <div className="container-custom relative z-10 text-center">
                 <div ref={ref} className="reveal max-w-2xl mx-auto">

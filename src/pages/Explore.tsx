@@ -78,8 +78,8 @@ export default function Explore() {
             {/* Hero */}
             <section className="relative pt-24 pb-10 md:pt-40 md:pb-20 bg-mesh overflow-hidden">
                 <div className="absolute inset-0 overflow-hidden">
-                    <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-indigo-500/20 to-teal-500/20 rounded-full blur-3xl" />
-                    <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-tr from-purple-500/15 to-indigo-500/15 rounded-full blur-3xl" />
+                    <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-primary-500/25 to-accent-400/20 rounded-full blur-3xl" />
+                    <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-tr from-primary-600/20 to-primary-400/15 rounded-full blur-3xl" />
                 </div>
                 <div className="container-custom relative z-10">
                     <div className="max-w-3xl mx-auto text-center">
@@ -89,7 +89,7 @@ export default function Explore() {
                             <span>{countries.reduce((sum, c) => sum + c.count, 0)}+ Universities • {countries.length} Countries</span>
                         </div>
                         <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-4" style={{ color: 'var(--text-primary)' }}>
-                            Explore <span className="bg-gradient-to-r from-indigo-500 to-teal-400 bg-clip-text text-transparent">Universities</span>
+                            Explore <span className="bg-gradient-to-r from-primary-500 to-accent-400 bg-clip-text text-transparent">Universities</span>
                         </h1>
                         <p className="text-lg md:text-xl max-w-2xl mx-auto mb-8" style={{ color: 'var(--text-secondary)' }}>
                             Transparent data on tuition, salaries, visa risk, and programs — all in one place. No commission, no bias.
@@ -102,7 +102,7 @@ export default function Explore() {
                                 <input
                                     type="text" value={search} onChange={(e) => setSearch(e.target.value)}
                                     placeholder="Search university, city, or program…"
-                                    className="w-full pl-12 pr-4 py-3.5 rounded-xl text-base transition-all focus:outline-none focus:ring-2 focus:ring-indigo-500/50"
+                                    className="w-full pl-12 pr-4 py-3.5 rounded-xl text-base transition-all focus:outline-none focus:ring-2 focus:ring-primary-500/50"
                                     style={{ backgroundColor: 'var(--glass-bg)', border: '1px solid var(--border-color)', color: 'var(--text-primary)', backdropFilter: 'blur(12px)' }}
                                 />
                             </div>
@@ -133,14 +133,14 @@ export default function Explore() {
                         {/* Filters row */}
                         <div className="flex items-center gap-2 flex-wrap">
                             <select value={greFilter} onChange={(e) => setGreFilter(e.target.value)}
-                                className="px-3 py-2 rounded-lg text-sm transition-all focus:outline-none focus:ring-2 focus:ring-indigo-500/50 flex-1 min-w-[120px] max-w-[160px]"
+                                className="px-3 py-2 rounded-lg text-sm transition-all focus:outline-none focus:ring-2 focus:ring-primary-500/50 flex-1 min-w-[120px] max-w-[160px]"
                                 style={{ backgroundColor: 'var(--glass-bg)', border: '1px solid var(--border-color)', color: 'var(--text-secondary)' }}>
                                 <option value="">GRE: Any</option>
                                 <option value="no">No GRE</option>
                                 <option value="yes">GRE Required</option>
                             </select>
                             <select value={visaFilter} onChange={(e) => setVisaFilter(e.target.value)}
-                                className="px-3 py-2 rounded-lg text-sm transition-all focus:outline-none focus:ring-2 focus:ring-indigo-500/50 flex-1 min-w-[120px] max-w-[160px]"
+                                className="px-3 py-2 rounded-lg text-sm transition-all focus:outline-none focus:ring-2 focus:ring-primary-500/50 flex-1 min-w-[120px] max-w-[160px]"
                                 style={{ backgroundColor: 'var(--glass-bg)', border: '1px solid var(--border-color)', color: 'var(--text-secondary)' }}>
                                 <option value="">Visa: Any</option>
                                 <option value="low">Low Risk</option>
