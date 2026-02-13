@@ -29,14 +29,13 @@ export interface CountryInfo {
 
 const COUNTRY_FILES: Record<string, string> = {
     canada: 'Canada_uni.txt',
-    germany: 'Germany_uni.txt',
     uk: 'UK_uni.txt',
-    australia: 'Australia_uni.txt',
     usa: 'USA_uni.txt',
+    australia: 'Australia_uni.txt',
 };
 
-const COUNTRY_NAMES: Record<string, string> = { canada: 'Canada', germany: 'Germany', uk: 'United Kingdom', australia: 'Australia', usa: 'United States' };
-const COUNTRY_FLAGS: Record<string, string> = { canada: '🇨🇦', germany: '🇩🇪', uk: '🇬🇧', australia: '🇦🇺', usa: '🇺🇸' };
+const COUNTRY_NAMES: Record<string, string> = { canada: 'Canada', uk: 'United Kingdom', usa: 'United States', australia: 'Australia' };
+const COUNTRY_FLAGS: Record<string, string> = { canada: '🇨🇦', uk: '🇬🇧', usa: '🇺🇸', australia: '🇦🇺' };
 
 function generateSlug(name: string): string {
     return name
